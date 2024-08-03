@@ -1,0 +1,115 @@
+@charset "EUC-KR";
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+hr {
+	border: 0;
+	background-color: #212121;
+	width: 90%;
+	height: 2px;
+}
+
+.heart 
+{
+	filter: invert(11%) sepia(68%) saturate(7357%) hue-rotate(352deg)
+		brightness(109%) contrast(90%);
+	position: relative;
+	left: 40%;
+	top: -50%;
+}
+
+.dislike 
+{
+	filter: invert(29%) sepia(100%) saturate(11%) hue-rotate(350deg)
+		brightness(96%) contrast(93%);
+	position: relative;
+}
+
+.like 
+{
+	filter: invert(100%) sepia(0%) saturate(7425%) hue-rotate(102deg)
+		brightness(114%) contrast(101%);
+	position: relative;
+	left: 20%;
+}
+
+.my_img1 
+{
+	opacity: 0.4;
+}
+
+.review 
+{
+	margin: 2px;
+	font-size: 30px;
+	top: 97%;
+	left: 1%;
+}
+
+.main_image_text 
+{
+	color: white;
+	top: 88%;
+	text-align: center; /* 2023.12.05 은희 수정 부분 */
+}
+
+.main_text 
+{
+	left: 1%;
+	bottom: -10%;
+	font-size: 20px;
+}
+
+#myform fieldset 
+{
+	display: inline-block;
+	direction: rtl;
+	border: 0;
+}
+
+#myform fieldset legend 
+{
+	text-align: right;
+}
+
+#myform input[type=radio] 
+{
+	display: none;
+}
+
+#myform label 
+{
+	font-size: 3em;
+	color: transparent;
+	text-shadow: 0 0 0 #5E5E5E
+}
+
+#myform label:hover 
+{
+	text-shadow: 0 0 0 rgba(217, 205, 0, 1);
+}
+
+#myform label:hover ~ label 
+{
+	text-shadow: 0 0 0 rgba(217, 205, 0, 1);
+}
+
+#myform input[type=radio]:checked ~ label 
+{
+	text-shadow: 0 0 0 rgba(217, 205, 0, 1);
+}
+
+#reviewContents 
+{
+	width: 100%;
+	height: 150px;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 1.5px #D3D3D3;
+	border-radius: 5px;
+	font-size: 16px;
+	resize: none;
+}

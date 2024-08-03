@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
+<%
+String uploadPath = "C:\\Users\\502\\eclipse-workspace\\STUDY\\Board05\\src\\main\\webapp\\upload";
+//업로드가 가능한 최대 파일 크기를 지정한다.
+int size = 10 * 1024 * 1024;
+
+MultipartRequest multi = new MultipartRequest(request,uploadPath,size,
+		"EUC-KR",new DefaultFileRenamePolicy());
+request.setCharacterEncoding("EUC-KR");
+
+
+String thumfile_phyname = "";
+String thumfile_fname  	= (String)multi.getFilesystemName("thumfile_fname");
+String tralier_link  	= multi.getParameter("tralier_link");
+String title  			= multi.getParameter("title");
+String opendate  		= multi.getParameter("opendate");
+String screen_info  	= multi.getParameter("screen_info");
+String running_time  	= multi.getParameter("running_time");
+String nation 			= multi.getParameter("nation");
+String story 			= multi.getParameter("story");
+String grade            = multi.getParameter("grade");
+String genre 			= multi.getParameter("genre");
+String OTTaddr_neflix   = multi.getParameter("OTTaddr_neflix");
+String OTTaddr_disney   = multi.getParameter("OTTaddr_disney");
+String OTTaddr_coupang  = multi.getParameter("OTTaddr_coupang");
+String OTTaddr_watcha   = multi.getParameter("OTTaddr_watcha");
+String uploaddate  	 	= multi.getParameter("uploaddate");
+
+
+if(title == null || story == null)
+{
+	out.println("제목과 줄거리를 입력해주세요.");
+	return;
+}
+
+//MEMO 테이블에 자료를 등록한다.
+//1. jdbc 라이브러리 로딩
+//2. 데이터베이스에 연결한다.	
+//3. 데이터베이스에 C(Insert) 작업을 수행한다.
+//4. 연결을 닫는다.
+
+//======================================
+//1. jdbc 라이브러리 로딩
+try
+{
+	Class.forName("com.mysql.cj.jdbc.Driver");
+}catch(Exception e)
+{
+	e.printStackTrace();
+	out.println("JDBC 드라이버를 로딩 할 수 없습니다.");
+	return;
+}
+
+//======================================		
+//2. 데이터베이스에 연결한다.	
+String host   = "jdbc:mysql://192.168.0.215:3306/ezentv";
+host += "?useUnicode=true&characterEncoding=utf-8";
+host += "&serverTimezone=UTC";
+Connection conn = null;
+try 
+{
+	conn =  DriverManager.getConnection(host,"root","ezen");
+} catch (SQLException e) 
+{
+	e.printStackTrace();
+	out.println("데이터베이스에 연결 할 수 없습니다.");
+	return;
+}
+
+//======================================
+//3. 데이터베이스에 C(Insert) 작업을 수행한다.
+String no = "";
+try
+{
+	Statement stmt = conn.createStatement();
+	String    sql  = "";			
+	sql  = "insert into contents(title,story) ";
+	sql += "values('" + title + "','" + story+ "')";
+	stmt.executeUpdate(sql);
+	
+	//등록한 메모 번호를 얻는다.
+	sql = "select last_insert_id() as no ";
+	ResultSet rs = stmt.executeQuery(sql);
+	rs.next();
+	no = rs.getString("no");	
+}catch (SQLException e) 
+{
+	e.printStackTrace();
+	out.println("데이터베이스에 자료를 입력 할 수 없습니다.");
+	return;
+}
+//======================================
+//4. 데이터베이스 연결을 종료한다.
+try 
+{
+	conn.close();
+} catch (SQLException e) 
+{
+	e.printStackTrace();
+}
+response.sendRedirect("main.jsp?no=" + no);
+%>
+제목 : <%= title %>
+<br>
+내용 : <%= story %>
+
+
+
+%>
+
+
+

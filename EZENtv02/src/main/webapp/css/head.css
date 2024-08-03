@@ -1,0 +1,180 @@
+@charset "EUC-KR";
+*
+{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.main-text
+{
+  position: fixed;
+  color: white;
+  z-index: 1;
+  text-align:left
+}
+a 
+{ 
+	text-decoration-line: none;
+	color: white;
+}
+.serch_text
+{
+	  padding: 10px 20px;						  
+	  text-align: center;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  bottom: 5%;
+	  transform: translate(-50%, -50%);
+	
+}
+
+#menuTableA
+{
+	position: fixed;
+	top : 50px;
+	left : 300px;
+	background-color : #535151;
+	color: white;
+	opacity: 0.9;
+	z-index: 1;
+	          
+}	
+
+#menuTableB
+{
+	position: fixed;
+	top : 50px;
+	right : 10px;
+	background-color : #535151;
+	color: white;
+	opacity: 0.9;
+	z-index: 1;	          
+}					
+	
+* 
+{
+	  padding:0;
+	  margin:0;
+	  box-sizing: border-box;
+}
+
+
+#modalWrap 
+{
+	  position: fixed; /* Stay in place */
+	  z-index: 1; /* Sit on top */
+	  padding-top: 200px; /* Location of the box */
+	  left: 0;
+	  top: 0;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  overflow: auto; /* Enable scroll if needed */
+	  background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+	  display : none;
+}
+
+#modalBody 
+{
+	  width: 500px;
+	  height: 400px;
+	  padding: 5px 5px;
+	  margin: 0 auto;
+	  background-color: #212121;
+}
+
+#closeBtn 
+{
+	  float:right;
+	  font-weight: bold;
+	  color: #777;
+	  font-size:25px;
+	  cursor: pointer;
+}		
+.swiper-container 
+{
+		height:300px;
+		width:1200px;
+}
+	
+.swiper-slide 
+{
+		text-align:center;
+		display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
+		align-items:center; /* 위아래 기준 중앙정렬 */
+		justify-content:center; /* 좌우 기준 중앙정렬 */
+}
+	
+.swiper-slide img
+{						
+		max-width:100%; /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+		/* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+}
+
+.lb-wrap 
+{
+		  width: 100%;
+		  margin: 10px auto;
+		  border: 1px solid #000000;
+		  position: relative;
+		  
+}
+		
+.lb-wrap img 
+{
+		  width: 100%;
+		  vertical-align: middle;
+}
+	
+.lb-text 
+{
+		  padding: 10px 20px;						  
+		  text-align: center;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+}
+
+
+	
+ #userimg
+{
+	 width : 200px;
+	 height : 200px;
+	 position: absolute;
+	 transform: translate( 50%, -90% );
+}
+
+#user,#profile
+{
+	 font-weight:bold;
+	 font-size:40px;
+	 position: absolute;
+	 transform: translate( 10%, -90% );
+}
+
+.main_image
+{
+	  position: relative;
+}
+ 
+.main_image_text 
+{
+	  position: relative;
+	  font-size : 50px;
+	  color: white;
+}
+ 
+ 
+.heart
+{
+	filter: invert(11%) sepia(68%) saturate(7357%) hue-rotate(352deg) brightness(109%) contrast(90%);
+	position: relative;
+	left:0.5%
+}
+ 
+.heart1
+{
+	filter: invert(11%) sepia(68%) saturate(7357%) hue-rotate(352deg) brightness(109%) contrast(90%);
+	position: relative;
+	left:-12%
+}
